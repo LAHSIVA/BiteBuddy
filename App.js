@@ -21,10 +21,43 @@ const Header =() =>{
     );
 }
 
+const RestaurantCard=()=>{
+    return(
+        <div className="res-card">
+            <img 
+            className="res-logo"
+            alt="res-logo"
+            src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_264,h_288,c_fill/RX_THUMBNAIL/IMAGES/VENDOR/2024/4/17/768a43ed-602d-4e08-b6ab-a2bf8f7d3e33_17824.JPG"            
+            />
+            <h3>KFC</h3>
+            <h4>Fried Chicken ,  American</h4>
+            <h4>4.4 Stars</h4>
+        </div>
+    )
+}
+const Body =()=>{
+    return(
+        <div className="body">
+            <div className="search">Search</div>
+            <div className="res-container">
+                <RestaurantCard/>
+                <RestaurantCard/>
+                <RestaurantCard/>
+                <RestaurantCard/>
+                <RestaurantCard/>
+                <RestaurantCard/>
+                <RestaurantCard/>
+                <RestaurantCard/>
+            </div>
+        </div>
+    )
+}
+
 const AppLayout = () => {
     return(
         <div className="app">
             <Header />
+            <Body />
         </div>
     );
     
