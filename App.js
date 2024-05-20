@@ -2,9 +2,15 @@ import React from "react"
 import ReactDOM from "react-dom/client"
 
 
-const Header = () => (
-    <h1>This is Header</h1>
-);
+const AppLayout = () => {
+    return(
+        <div class="app">
+            
+
+        </div>
+    )
+    
+};
 
 const root =ReactDOM.createRoot(document.getElementById("root"));
 
