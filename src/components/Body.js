@@ -1,56 +1,67 @@
 import RestaurantCard from "./RestaurantCard.js";
+import {useState} from "react";
+import { LOGO_URL } from "../utils/constants.js";
 
 const Body =()=>{
+    const [listofRestaurants,setlistofRestaurants]=useState([
+        {
+            data:{
+                id:"1234",
+                name:"KFC",
+                cloudinaryImageId:{LOGO_URL},
+                cuisines:["burgers"],
+                costForTwo:40000,
+                deliveryTime:36,
+                avgRating:"4.5",
+            }
+        },
+        {
+            data:{
+                id:"1235",
+                name:"Dominos",
+                cloudinaryImageId:{LOGO_URL},
+                cuisines:["burgers"],
+                costForTwo:40000,
+                deliveryTime:36,
+                avgRating:"3.5",
+            }
+        },
+        {
+            data:{
+                id:"1236",
+                name:"McDonalds",
+                cloudinaryImageId:{LOGO_URL},
+                cuisines:["burgers"],
+                costForTwo:40000,
+                deliveryTime:36,
+                avgRating:"4.8",
+            }
+        },
+    ]);
+
+
     return(
         <div className="body">
             <div className="Filter">
-                <button className="filter-btn" onMouseOver={()=>{console.log("Button Clicked")}}>Top Rated Restaurants</button>
+                <button 
+                className="filter-btn"
+                 onClick={()=>{
+                    const filterList = listofRestaurants.filter(
+                        (res)=>res.data.avgRating>4
+                    );
+                    setlistofRestaurants(filterList);
+                 }}
+            >
+                TopRatedRestaurants
+            </button>
             </div>
             <div className="res-container">
-                <RestaurantCard
-                resname="KFC"
-                cuisine="Fried Chicken ,  American"
-                stars="4.4 Stars"
-                />
-                <RestaurantCard
-                resname="Maria"
-                cuisine="chicken Biriyani ,  Iyanamabakkam"
-                stars="4.3 Stars"
-                />
-                <RestaurantCard
-                resname="A2B"
-                cuisine="Sweets ,  Adyar"
-                stars="4.2 Stars"
-                />
-                <RestaurantCard
-                resname="Aryas"
-                cuisine="Sambar rice ,  Nagerkovil"
-                stars="4.1 Stars"
-                />
-                <RestaurantCard
-                resname="Amman"
-                cuisine="Chicken lollipup ,  Peelamedu"
-                stars="4.0 Stars"
-                />
-                <RestaurantCard
-                resname="Meenakshi"
-                cuisine="Barotta ,  Madurai"
-                stars="4.8 Stars"
-                />
-                <RestaurantCard
-                resname="Barbeqew"
-                cuisine="Fried Chicken ,  Vanagaram"
-                stars="4.7 Stars"
-                />
-                <RestaurantCard
-                resname="RR Biriyani"
-                cuisine="Mutton Biriyani ,  Salem"
-                stars="4.8 Stars"
-                />
-                
+                {listofRestaurants.map((restaurant)=>(
+                    <RestaurantCard key={restaurant.data.id} resData={restaurant}/>
+                ))}
             </div>
         </div>
-    )
-}
+    );
+};
 
 export default Body;
