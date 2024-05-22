@@ -3,7 +3,9 @@ import RestaurantCard from "./RestaurantCard.js";
 const Body =()=>{
     return(
         <div className="body">
-            <div className="search">Search</div>
+            <div className="Filter">
+                <button className="filter-btn" onMouseOver={()=>{console.log("Button Clicked")}}>Top Rated Restaurants</button>
+            </div>
             <div className="res-container">
                 <RestaurantCard
                 resname="KFC"
